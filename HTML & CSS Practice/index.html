@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nike - HTML & CSS Practice</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 배경동영상 -->
+    <figure class="vid">
+        <video loop autoplay muted>
+            <source src="img/nike.mp4" type="video/mp4">
+        </video>
+    </figure>
+
+    <!-- 로고 -->
+    <header>
+        <h1><img src="img/logo2.png" alt="NIKE Logo"></h1>
+        
+        <!-- 네비게이션 -->
+        <nav>
+            <ul id="gnb">
+                <li class="on">
+                    <a href="#"><em><i class="fa fa-refresh fa-spin"></i>About NIKE</em></a>
+                    <ul>
+                        <li><a href="#"><em><b>English</b></em></a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><em>Brand Info</em></a>
+                    <ul>
+                        <li><a href="#"><em>sub</em></a></li>
+                        <li><a href="#"><em>sub</em></a></li>
+                        <li><a href="#"><em>sub</em></a></li>
+                        <li><a href="#"><em>sub</em></a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><em>Community</em></a>
+                    <ul>
+                        <li><a href="#"><em>sub</em></a></li>
+                        <li><a href="#"><em>sub</em></a></li>
+                        <li><a href="#"><em>sub</em></a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><em>Product Value</em></a>
+                    <ul>
+                        <li><a href="#"><em>sub</em></a></li>
+                        <li><a href="#"><em>sub</em></a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><em>Company History</em></a>
+                    <ul>
+                        <li><a href="#"><em>sub</em></a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- sns 버튼모음 -->
+    <aside>
+        <ul id="sns">
+            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+            <li><a href="#"><i class="fa fa-android"></i></a></li>
+        </ul>
+    </aside>
+
+    <!-- 웹폰트 텍스트박스 -->
+    <section class="txtBox">
+        <h2 class="sr-only">Text Box</h2>
+        <p class="txt">Best Qualified <b>AIR MAX</b></p>
+        <p class="tit">50<em>/ 24</em></p>
+    </section>
+
+    <!-- 하단 컨텐츠박스 -->
+    <section id="side">
+        <h2 class="sr-only">Contents Box</h2>
+
+        <div class="con">
+            <article>
+                <h2>Event & Community</h2>
+                <a href="#"><img src="img/pic1.png" alt="Event & Community"></a>
+            </article>
+            <article>
+                <h2>News & Notice</h2>
+                <a href="#"><img src="img/pic2.png" alt="News & Notice"></a>
+            </article>
+            <article>
+                <h2>Product Review</h2>
+                <a href="#"><img src="img/pic3.png" alt="Product Review"></a>
+            </article>
+        </div>
+        <!-- 자동롤링 버튼 -->
+        <div class="btnContents">
+            <i class="fa fa-angle-double-left"></i>
+            <i class="fa fa-angle-double-left"></i>
+            <i class="fa fa-angle-double-left"></i>
+        </div>
+    </section>
+</body>
+</html>
