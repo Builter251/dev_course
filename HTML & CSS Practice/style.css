@@ -3,16 +3,29 @@
     padding: 0;
     box-sizing: border-box;
     list-style: none;
+    text-decoration: none;
+    color: aliceblue;
 }
 
 body {
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-    background-color: black;
 }
 
-#video {
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.vidBg {
     position: fixed;
     width: 100vw;
     height: 100vh;
@@ -21,73 +34,99 @@ body {
 }
 
 header {
-    position: absolute;
-    width: 20vw;
+    position: fixed;
+    width: 16vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.7);
     right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
-.logo {
-    display: block;
-    width: 65%;
-    margin: 30px auto;
-    filter: brightness(1000%);
+h1 {
+    font-size: 3rem;
+    text-align: center;
+    margin: 2rem auto;
 }
 
 nav {
     text-align: center;
-    position: relative;
+    font-size: 2rem;
 }
 
-nav ul li {
-    position: relative;
-}
-
-nav > ul > li > a,
-nav ul li ul.dropdown li a {
-    color: white;
-    font-weight: bold;
-    padding: 15px;
-    width: 20vw;
+nav li a {
     display: block;
-    text-decoration: none;
-    background-color: rgba(0, 0, 0, 0.8);
+    padding: 1rem;
+}
+
+nav>ul>li {
+    position: relative;
+}
+
+nav .dropdown {
+    visibility: hidden;
+    position: absolute;
+    right: 100%;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    width: 16vw;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+nav .dropdown li {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+nav>ul>li>a,
+nav ul .dropdown li a {
     transition: background-color 0.3s ease;
 }
 
-nav > ul > li > a:hover,
-nav ul li ul.dropdown li a:hover {
+nav>ul>li>a:hover,
+nav ul .dropdown li a:hover {
     background-color: rgba(50, 50, 50, 0.8);
 }
 
-nav ul li ul.dropdown {
+nav .dropdown {
     visibility: hidden;
-    opacity: 0;
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-    transition: all 0.3s ease;
-    transform: translateY(-10px);
 }
 
-nav ul li:hover ul.dropdown {
-    visibility: visible;
+nav ul li:hover .dropdown {
     opacity: 1;
-    transform: translateY(0);
+    visibility: visible;
 }
 
-nav ul li ul.dropdown li {
+.snsLists {
+    position: absolute;
+    display: flex;
+    justify-content: space-evenly;
+    bottom: 20px;
     width: 100%;
+    font-size: 2rem;
+    text-align: center;
+    padding: 10px 0;
 }
 
-nav ul li ul.dropdown li a {
-    font-weight: normal;
-    font-size: 0.9em;
+.precontract-button {
+    position: fixed;
+    bottom: 0;
+    margin: 20px;
+    width: 64px;
+    height: 69px;
+    background-image: url('img/precontract_hover_before.png');
+    background-repeat: no-repeat;
+    text-indent: -9999px;
+    /* 텍스트 숨기기 */
+    transition: width 0.4s ease, height 0.3s ease;
 }
 
-nav ul li ul.dropdown li a:hover {
-    background-color: rgba(80, 80, 80, 0.8);
+.precontract-button:hover {
+    background-image: url('img/precontract_hover_after.png');
+    width: 192px;
+    height: 64px;
+}
+
+.refLabel .fas {
+    font-size: 60px;
+    color: aliceblue;
 }

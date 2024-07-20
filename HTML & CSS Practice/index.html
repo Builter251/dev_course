@@ -1,50 +1,92 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <title>CASPER Electric - HTML & CSS Practice</title>
+    <title>CASPER Electric</title>
 </head>
+
 <body>
-    <!-- 배경 동영상 -->
-    <iframe id="video" src="https://www.youtube.com/embed/a3xpXkBj_Ak?si=dTMuJlheMIn26Rat&amp;controls=0&autoplay=1&mute=1&loop=1&playlist=a3xpXkBj_Ak"
+    <!-- Background Video -->
+    <iframe class="vidBg"
+        src="https://www.youtube.com/embed/a3xpXkBj_Ak?si=dTMuJlheMIn26Rat&amp;controls=0&autoplay=0&mute=1&loop=0&playlist=a3xpXkBj_Ak"
         title="YouTube video player" frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
     <header>
-        <!-- 로고 -->
-        <h1><img class="logo" src="img/hyundai.png" alt="hyundai logo"></h1>
+        <h1>CASPER<br>Electric</h1>
 
-        <!-- 네비게이션 -->
+        <!-- Navigation -->
         <nav>
             <ul>
-                <li><a href="#">What is CASPER</a>
+                <li><a href="#">The Look</a>
                     <ul class="dropdown">
-                        <li><a href="#">Sub 1</a></li>
+                        <li><a href="#">Electric City Car</a></li>
+                        <li><a href="#">Versatility</a></li>
                     </ul>
                 </li>
-                <li><a href="#">Model</a>
+
+                <li><a href="#">Interior</a>
                     <ul class="dropdown">
-                        <li><a href="#">Sub 1</a></li>
-                        <li><a href="#">Sub 2</a></li>
-                        <li><a href="#">Sub 3</a></li>
+                        <li><a href="#">Roominess</a></li>
+                        <li><a href="#">Flexibility</a></li>
                     </ul>
                 </li>
-                <li><a href="#">Buy CASPER</a>
+
+                <li><a href="#">Performance</a>
                     <ul class="dropdown">
-                        <li><a href="#">Sub 1</a></li>
-                        <li><a href="#">Sub 2</a></li>
+                        <li><a href="#">Driving Range</a></li>
+                        <li><a href="#">Fast Charging</a></li>
                     </ul>
                 </li>
-                <li><a href="#">Community</a>
+
+                <li><a href="#">Safety</a>
                     <ul class="dropdown">
-                        <li><a href="#">Sub 1</a></li>
+                        <li><a href="#">Advanced Driver Assistance</a></li>
+                        <li><a href="#">Smart Senses</a></li>
                     </ul>
                 </li>
             </ul>
         </nav>
+
+        <!-- SNS Lists -->
+        <ul class="snsLists">
+            <li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
+            <li><a href="#"><i class="fab fa-youtube-square"></i></a></li>
+            <li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
+            <li><a href="#"><i class="fab fab fa-instagram-square"></i></a></li>
+        </ul>
     </header>
+
+    <aside>
+        <!-- Reference Docs Menu -->
+        <section class="reference">
+            <h2 class="sr-only">자료실</h2>
+
+            <input type="checkbox" id="refToggle" class="sr-only">
+            <label for="refToggle" class="refLabel">
+                <i class="fas fa-plus-circle"></i>
+            </label>
+
+            <ul>
+                <li><a href="#">Digital Catalog</a></li>
+                <li><a href="#">Price List</a></li>
+                <li><a href="#">EV Manual</a></li>
+                <li><a href="#">Infotainment System Manual</a></li>
+            </ul>
+        </section>
+
+        <!-- Precontract Link Button -->
+        <section class="precontract">
+            <h2 class="sr-only">사전 예약 바로가기</h2>
+            <a href="#" class="precontract-button">사전 예약하기</a>
+        </section>
+    </aside>
+
 </body>
+
 </html>
