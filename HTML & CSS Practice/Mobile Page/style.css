@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    border: none;
+    word-break: keep-all;
+}
+
+body {
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+h1 {
+    font-size: 2rem;
+    height: 2rem;
+}
+
+nav {
+    background-color: green;
+}
+
+.navButton {
+    text-align: center;
+    line-height: 1.75rem;
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: hotpink;
+}
+
+nav ul {
+    /* display: none; */
+}
+
+footer {
+    padding: 10px;
+    text-align: center;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.8);
+}
