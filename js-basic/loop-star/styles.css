@@ -1,0 +1,98 @@
+/* 기존 스타일은 유지하고 아래 내용을 추가합니다 */
+
+body {
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+
+
+main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    max-width: 100vw;
+    height: 100vh;
+    overflow: auto;
+}
+
+.starContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    white-space: pre; 
+    line-height: 1;
+    padding: 20px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+
+#starContainer11 {
+    grid-column: span 2; /* 2개의 열을 차지하도록 설정 */
+    background-color: #2980b9; /* 기존 배경색 유지 */
+}
+
+/* 필요에 따라 미디어 쿼리를 추가하여 반응형으로 만들 수 있습니다 */
+@media (max-width: 768px) {
+    main {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+}
+/* 접근성을 고려한 깔끔한 배경색 */
+#starContainer1 {
+    background-color: #f0f4f8; /* 연한 회색 */
+    color: #102a43; /* 진한 남색 */
+}
+
+#starContainer2 {
+    background-color: #d9e2ec; /* 연한 청회색 */
+    color: #243b53; /* 진한 청색 */
+}
+
+#starContainer3 {
+    background-color: #e6f0e9; /* 연한 민트 */
+    color: #1f4d3b; /* 진한 녹색 */
+}
+
+#starContainer4 {
+    background-color: #e6f3ff; /* 연한 하늘색 */
+    color: #003e6b; /* 진한 파랑 */
+}
+
+#starContainer5 {
+    background-color: #fff0db; /* 연한 베이지 */
+    color: #8d5b14; /* 갈색 */
+}
+
+#starContainer6 {
+    background-color: #ffebe6; /* 연한 살구색 */
+    color: #ab3211; /* 진한 주황 */
+}
+
+#starContainer7 {
+    background-color: #f0e6ff; /* 연한 라벤더 */
+    color: #4c2889; /* 진한 보라 */
+}
+
+#starContainer8 {
+    background-color: #e6fffa; /* 연한 청록 */
+    color: #014d40; /* 진한 청록 */
+}
+
+#starContainer9 {
+    background-color: #fffbea; /* 연한 레몬 */
+    color: #8d6708; /* 진한 황토 */
+}
+
+#starContainer10 {
+    background-color: #ffeef0; /* 연한 분홍 */
+    color: #9e1f3d; /* 진한 자주 */
+}
+
+#starContainer11 {
+    background-color: #e6f2ff; /* 연한 파랑 */
+    color: #003e6b; /* 진한 네이비 */
+}
