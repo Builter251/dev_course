@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Loop Star</title>
+</head>
+
+<body>
+    <header>
+        <h1>JS Loop Star</h1>
+        <h2>JavaScript 반복문을 이용한 별 찍기</h2>
+
+        <nav>
+            <!-- 1~10번 탭 메뉴 -->
+        </nav>
+    </header>
+
+    <main>
+        <!-- 1번 -->
+        <div>
+            <script>
+                let stars = 5;
+
+                for (let i = 0; i < stars; i++) {
+                    document.write('★');
+                }
+            </script>
+        </div>
+
+        <hr>
+
+        <!-- 2번 -->
+        <div>
+            <script>
+                let no2_rows = 5;
+
+                for (let i = 0; i < no2_rows; i++) {
+                    document.write('★');
+                    document.write('<br>');
+                }
+            </script>
+        </div>
+
+        <hr>
+
+        <div>
+            <!-- 3번 -->
+            <script>
+                let no3_rows = 5;
+                let no3_stars = 5;
+
+                for (let i = 0; i < no3_rows; i++) {
+                    for (let i = 0; i < no3_stars; i++) {
+                        document.write('★');
+                    }
+                    document.write('<br>');
+                }
+            </script>
+        </div>
+        <hr>
+        <div>
+            <script>
+                let no4_rows = 5;
+                let no4_max_stars = 5;
+
+                for (let i = 0; i < no4_rows; i++) {
+                    for (let j = 0; j < i + 1; j++) {
+                        document.write('★');
+                    }
+                    document.write('<br>');
+                }
+            </script>
+        </div>
+        <hr>
+        <div>
+            <script>
+                let no5_rows = 5;
+                let no5_max_stars = 5;
+
+                for (let i = 0; i < no5_rows; i++) {
+                    for (let j = 0; j < no5_max_stars - i; j++) {
+                        document.write('★');
+                    }
+                    document.write('<br>');
+                }
+            </script>
+        </div>
+        <hr>
+        <div>
+            <script>
+                let no6_rows = 5;
+                let no6_max_stars = 5;
+
+                for (let i = 0; i < no6_rows; i++) {
+                    for (let j = 0; j < no6_max_stars - i - 1; j++) {
+                        // document.write('&nbsp;');
+                        // 다른 사람은 빈칸을 어떻게 했나?
+                        document.write('☆');
+                    }
+                    for (let j = 0; j < i + 1; j++) {
+                        document.write('★');
+                    }
+                    document.write('<br>');
+                }
+            </script>
+        </div>
+        <hr>
+        <div>
+            <script>
+                let no7_rows = 5;
+                let no7_max_stars = 5;
+                for (let i = 0; i < no7_rows; i++) {
+                    for (let j = 0; j < i; j++) {
+                        document.write('☆');
+                    }
+                    for (let k = 0; k < no7_max_stars - i; k++) {
+                        document.write('★');
+                    }
+                    document.write('<br>');
+                }
+            </script>
+        </div>
+        <hr>
+        <div>
+            <script>
+                for (let i = 0; i < 5; i++) {
+                    for (let j = 0; j < 5 - i - 1; j++) {
+                        document.write('☆');
+                    }
+                    for (let k = 0; k < 2 * i + 1; k++) {
+                        document.write('★');
+                    }
+                    document.write('<br>');
+                }
+            </script>
+        </div>
+        <hr>
+        <div>
+            <script>
+                for (let i = 0; i < 5; i++) {
+                    for (let j = 0; j < i; j++) {
+                        document.write('☆');
+                    }
+                    for (let k = 0; k < 2 * (5 - i) - 1; k++) {
+                        document.write('★');
+                    }
+                    document.write('<br>');
+                }
+            </script>
+        </div>
+        <hr>
+        <div>
+            <script>
+                for (let i = 0; i < 5; i++) {
+                    for (let j = 0; j < 5 - i - 1; j++) {
+                        document.write('☆');
+                    }
+                    for (let k = 0; k < 2 * i + 1; k++) {
+                        document.write('★');
+                    }
+                    document.write('<br>');
+                }
+                for (let i = 0; i < 5; i++) {
+                    for (let j = 0; j < i; j++) {
+                        document.write('☆');
+                    }
+                    for (let k = 0; k < 2 * (5 - i) - 1; k++) {
+                        document.write('★');
+                    }
+                    document.write('<br>');
+                }
+            </script>
+        </div>
+        <hr>
+        
+
+
+
+
+
+
+
+
+
+
+
+    </main>
+
+    <footer>
+
+    </footer>
+</body>
+
+</html>
