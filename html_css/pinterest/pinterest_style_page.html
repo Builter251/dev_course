@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>HTML5 with Hanbit</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="jquery.masonry.min.js"></script>
+    <script src="jquery.imagesloaded.min.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            text-align: none;
+            border: 0;
+            list-style: none;
+            color: #2c3e50;
+            text-decoration: none;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            color: #333;
+        }
+
+        #main-header {
+            background-color: #ffffff;
+            height: 60px;
+            position: relative;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .header-search-form {
+            flex: 1;
+        }
+
+        .header-menu {
+            display: flex;
+        }
+
+        .header-title {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .outer-menu {
+            background-color: transparent;
+            padding: 10px 15px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #2c3e50;
+            transition: color 0.3s;
+            position: relative;
+            cursor: pointer;
+
+        }
+
+        .outer-menu a:hover {
+            color: #3498db;
+        }
+
+        .inner-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: #ffffff;
+            min-width: 100px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            border-radius: 4px;
+            overflow: hidden;
+            text-align: center;
+            z-index: 999;
+        }
+
+        .inner-menu a {
+            display: block;
+            padding: 10px 15px;
+            color: #2c3e50;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            
+        }
+
+        .inner-menu a:hover {
+            background-color: #f8f9fa;
+            /* 연한 회색 */
+        }
+
+        #main-navigation {
+            background-color: #f8f9fa;
+            /* 연한 회색 배경 */
+            border-bottom: 1px solid #e9ecef;
+            padding: 10px 0;
+        }
+
+        #main-navigation>ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #main-navigation>ul>li {
+            margin: 0 15px;
+        }
+
+        #main-navigation>ul>li>a {
+            color: #495057;
+            /* 중간 회색 */
+            font-size: 14px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        #main-navigation>ul>li>a:hover {
+            color: #3498db;
+            /* 밝은 파란색 */
+        }
+
+        .input-search {
+            border: 1px solid #b7babd;
+            border-radius: 20px;
+            padding: 8px 15px;
+            font-size: 14px;
+            width: 200px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .input-search:focus {
+            border-color: #3498db;
+            /* 밝은 파란색 */
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+        }
+
+        .input-search-submit {
+            background-color: #3498db;
+            /* 밝은 파란색 */
+            color: #ffffff;
+            border: none;
+            border-radius: 20px;
+            padding: 8px 15px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-left: 10px;
+        }
+
+        .input-search-submit:hover {
+            background-color: #2980b9;
+            /* 조금 더 어두운 파란색 */
+        }
+
+        .paper {
+            width: 190px;
+            margin-top: 10px;
+            padding: 15px 15px 0;
+            font-size: 11px;
+            background-color: #ffffff;
+            /* 흰색 페이퍼 배경 */
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            transition: box-shadow 0.3s;
+            border-radius: 4px;
+        }
+
+        .paper:hover {
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+        }
+
+        .paper-content {
+            margin: 0 -15px;
+            margin-top: 10px;
+            padding: 10px 15px;
+            background-color: #f9f9f9;
+            /* 연한 회색 내용 배경 */
+            overflow: hidden;
+            border-top: 1px solid #eee;
+        }
+
+        .paper-description {
+            margin: 10px 0;
+            color: #555;
+        }
+
+        .paper-link {
+            display: block;
+            float: left;
+        }
+
+        .paper-text {
+            float: left;
+            width: 150px;
+            margin-left: 10px;
+            color: #666;
+        }
+
+        #main-section {
+            width: 920px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        @media (max-width: 919px) {
+            #main-section {
+                width: 690px;
+            }
+        }
+
+        @media (min-width: 920px) and (max-width: 1149px) {
+            #main-section {
+                width: 920px;
+            }
+        }
+
+        @media (min-width: 1150px) and (max-width: 1379px) {
+            #main-section {
+                width: 1150px;
+            }
+        }
+
+        @media (min-width: 1380px) {
+            #main-section {
+                width: 1380px;
+            }
+        }
+
+        #darken-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: none;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 10000;
+            overflow-y: auto;
+        }
+
+        #lightbox {
+            width: 700px;
+            margin: 20px auto;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            background: #ffffff;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .user-information {
+            overflow: hidden;
+            text-align: left;
+        }
+
+        .user-information-image {
+            float: left;
+            width: 70px;
+        }
+
+        .user-information-text {
+            float: right;
+            width: 620px;
+        }
+
+        .lightbox-splitter {
+            margin: 10px 0;
+            border: none;
+            border-top: 1px solid #eee;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 헤더 -->
+    <header id="main-header">
+        <div class="header-search-form">
+            <form>
+                <input type="search" class="input-search">
+                <input type="submit" class="input-search-submit" value="검색">
+            </form>
+        </div>
+        <h1 class="header-title">Interest</h1>
+        <div class="header-menu">
+            <ul class="outer-menu">
+                <li>
+                    <a href="#">정보</a>
+                    <ul class="inner-menu">
+                        <li><a href="#">데이터</a></li>
+                        <li><a href="#">데이터</a></li>
+                        <li><a href="#">데이터</a></li>
+                        <li><a href="#">데이터</a></li>
+                        <li><a href="#">데이터</a></li>
+                        <li><a href="#">데이터</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="outer-menu">
+                <li>
+                    <a href="#">사용자</a>
+                    <ul class="inner-menu">
+                        <li><a href="#">데이터</a></li>
+                        <li><a href="#">데이터</a></li>
+                        <li><a href="#">데이터</a></li>
+                        <li><a href="#">데이터</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <!-- 내비게이션 메뉴 -->
+    <nav id="main-navigation">
+        <ul>
+            <li><a href="#">Following</a></li>
+            <li><a href="#">Categories</a></li>
+            <li><a href="#">Everything</a></li>
+            <li><a href="#">Popular</a></li>
+            <li><a href="#">Gift</a></li>
+        </ul>
+    </nav>
+    <!-- 본문 영역 -->
+    <section id="main-section">
+        <div class="paper">
+            <div class="paper-holder">
+                <a><img width="190" src="http://via.placeholder.com/190x206"></a>
+            </div>
+            <p class="paper-description">Lorem ipsum dolor sit amet</p>
+            <div class="paper-content">
+                <a class="paper-link" href="#">
+                    <img src="http://via.placeholder.com/30x30">
+                </a>
+                <p class="paper-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non diam neque.
+                    Maecenas mauris massa, aliquet ut mollis fermentum, pellentesque et leo.</p>
+            </div>
+        </div>
+
+        <div class="paper">
+            <div class="paper-holder">
+                <a><img width="190" src="http://via.placeholder.com/190x135"></a>
+            </div>
+            <p class="paper-description">Lorem ipsum dolor sit amet</p>
+            <div class="paper-content">
+                <a class="paper-link" href="#">
+                    <img src="http://via.placeholder.com/30x30">
+                </a>
+                <p class="paper-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non diam neque.
+                    Maecenas mauris massa, aliquet ut mollis fermentum, pellentesque et leo.</p>
+            </div>
+        </div>
+
+        <div class="paper">
+            <div class="paper-holder">
+                <a><img width="190" src="http://via.placeholder.com/190x166"></a>
+            </div>
+            <p class="paper-description">Lorem ipsum dolor sit amet</p>
+            <div class="paper-content">
+                <a class="paper-link" href="#">
+                    <img src="http://via.placeholder.com/30x30">
+                </a>
+                <p class="paper-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non diam neque.
+                    Maecenas mauris massa, aliquet ut mollis fermentum, pellentesque et leo.</p>
+            </div>
+        </div>
+
+        <div class="paper">
+            <div class="paper-holder">
+                <a><img width="190" src="http://via.placeholder.com/190x208"></a>
+            </div>
+            <p class="paper-description">Lorem ipsum dolor sit amet</p>
+            <div class="paper-content">
+                <a class="paper-link" href="#">
+                    <img src="http://via.placeholder.com/30x30">
+                </a>
+                <p class="paper-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non diam neque.
+                    Maecenas mauris massa, aliquet ut mollis fermentum, pellentesque et leo.</p>
+            </div>
+        </div>
+
+        <div class="paper">
+            <div class="paper-holder">
+                <a><img width="190" src="http://via.placeholder.com/190x149"></a>
+            </div>
+            <p class="paper-description">Lorem ipsum dolor sit amet</p>
+            <div class="paper-content">
+                <a class="paper-link" href="#">
+                    <img src="http://via.placeholder.com/30x30">
+                </a>
+                <p class="paper-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non diam neque.
+                    Maecenas mauris massa, aliquet ut mollis fermentum, pellentesque et leo.</p>
+            </div>
+        </div>
+
+        <div class="paper">
+            <div class="paper-holder">
+                <a><img width="190" src="http://via.placeholder.com/190x168"></a>
+            </div>
+            <p class="paper-description">Lorem ipsum dolor sit amet</p>
+            <div class="paper-content">
+                <a class="paper-link" href="#">
+                    <img src="http://via.placeholder.com/30x30">
+                </a>
+                <p class="paper-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non diam neque.
+                    Maecenas mauris massa, aliquet ut mollis fermentum, pellentesque et leo.</p>
+            </div>
+        </div>
+
+        <div class="paper">
+            <div class="paper-holder">
+                <a><img width="190" src="http://via.placeholder.com/190x179"></a>
+            </div>
+            <p class="paper-description">Lorem ipsum dolor sit amet</p>
+            <div class="paper-content">
+                <a class="paper-link" href="#">
+                    <img src="http://via.placeholder.com/30x30">
+                </a>
+                <p class="paper-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non diam neque.
+                    Maecenas mauris massa, aliquet ut mollis fermentum, pellentesque et leo.</p>
+            </div>
+        </div>
+
+        <div class="paper">
+            <div class="paper-holder">
+                <a><img width="190" src="http://via.placeholder.com/190x165"></a>
+            </div>
+            <p class="paper-description">Lorem ipsum dolor sit amet</p>
+            <div class="paper-content">
+                <a class="paper-link" href="#">
+                    <img src="http://via.placeholder.com/30x30">
+                </a>
+                <p class="paper-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non diam neque.
+                    Maecenas mauris massa, aliquet ut mollis fermentum, pellentesque et leo.</p>
+            </div>
+        </div>
+
+        <div class="paper">
+            <div class="paper-holder">
+                <a><img width="190" src="http://via.placeholder.com/190x202"></a>
+            </div>
+            <p class="paper-description">Lorem ipsum dolor sit amet</p>
+            <div class="paper-content">
+                <a class="paper-link" href="#">
+                    <img src="http://via.placeholder.com/30x30">
+                </a>
+                <p class="paper-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non diam neque.
+                    Maecenas mauris massa, aliquet ut mollis fermentum, pellentesque et leo.</p>
+            </div>
+        </div>
+
+        <div class="paper">
+            <div class="paper-holder">
+                <a><img width="190" src="http://via.placeholder.com/190x158"></a>
+            </div>
+            <p class="paper-description">Lorem ipsum dolor sit amet</p>
+            <div class="paper-content">
+                <a class="paper-link" href="#">
+                    <img src="http://via.placeholder.com/30x30">
+                </a>
+                <p class="paper-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non diam neque.
+                    Maecenas mauris massa, aliquet ut mollis fermentum, pellentesque et leo.</p>
+            </div>
+        </div>
+
+        <div class="paper">
+            <div class="paper-holder">
+                <a><img width="190" src="http://via.placeholder.com/190x132"></a>
+            </div>
+            <p class="paper-description">Lorem ipsum dolor sit amet</p>
+            <div class="paper-content">
+                <a class="paper-link" href="#">
+                    <img src="http://via.placeholder.com/30x30">
+                </a>
+                <p class="paper-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non diam neque.
+                    Maecenas mauris massa, aliquet ut mollis fermentum, pellentesque et leo.</p>
+            </div>
+        </div>
+
+        <div class="paper">
+            <div class="paper-holder">
+                <a><img width="190" src="http://via.placeholder.com/190x206"></a>
+            </div>
+            <p class="paper-description">Lorem ipsum dolor sit amet</p>
+            <div class="paper-content">
+                <a class="paper-link" href="#">
+                    <img src="http://via.placeholder.com/30x30">
+                </a>
+                <p class="paper-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non diam neque.
+                    Maecenas mauris massa, aliquet ut mollis fermentum, pellentesque et leo.</p>
+            </div>
+        </div>
+
+        <div class="paper">
+            <div class="paper-holder">
+                <a><img width="190" src="http://via.placeholder.com/190x193"></a>
+            </div>
+            <p class="paper-description">Lorem ipsum dolor sit amet</p>
+            <div class="paper-content">
+                <a class="paper-link" href="#">
+                    <img src="http://via.placeholder.com/30x30">
+                </a>
+                <p class="paper-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non diam neque.
+                    Maecenas mauris massa, aliquet ut mollis fermentum, pellentesque et leo.</p>
+            </div>
+        </div>
+
+        <div class="paper">
+            <div class="paper-holder">
+                <a><img width="190" src="http://via.placeholder.com/190x162"></a>
+            </div>
+            <p class="paper-description">Lorem ipsum dolor sit amet</p>
+            <div class="paper-content">
+                <a class="paper-link" href="#">
+                    <img src="http://via.placeholder.com/30x30">
+                </a>
+                <p class="paper-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non diam neque.
+                    Maecenas mauris massa, aliquet ut mollis fermentum, pellentesque et leo.</p>
+            </div>
+        </div>
+
+        <div class="paper">
+            <div class="paper-holder">
+                <a><img width="190" src="http://via.placeholder.com/190x173"></a>
+            </div>
+            <p class="paper-description">Lorem ipsum dolor sit amet</p>
+            <div class="paper-content">
+                <a class="paper-link" href="#">
+                    <img src="http://via.placeholder.com/30x30">
+                </a>
+                <p class="paper-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non diam neque.
+                    Maecenas mauris massa, aliquet ut mollis fermentum, pellentesque et leo.</p>
+            </div>
+        </div>
+
+        <div class="paper">
+            <div class="paper-holder">
+                <a><img width="190" src="http://via.placeholder.com/190x200"></a>
+            </div>
+            <p class="paper-description">Lorem ipsum dolor sit amet</p>
+            <div class="paper-content">
+                <a class="paper-link" href="#">
+                    <img src="http://via.placeholder.com/30x30">
+                </a>
+                <p class="paper-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non diam neque.
+                    Maecenas mauris massa, aliquet ut mollis fermentum, pellentesque et leo.</p>
+            </div>
+        </div>
+
+        <div class="paper">
+            <div class="paper-holder">
+                <a><img width="190" src="http://via.placeholder.com/190x149"></a>
+            </div>
+            <p class="paper-description">Lorem ipsum dolor sit amet</p>
+            <div class="paper-content">
+                <a class="paper-link" href="#">
+                    <img src="http://via.placeholder.com/30x30">
+                </a>
+                <p class="paper-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non diam neque.
+                    Maecenas mauris massa, aliquet ut mollis fermentum, pellentesque et leo.</p>
+            </div>
+        </div>
+
+        <div class="paper">
+            <div class="paper-holder">
+                <a><img width="190" src="http://via.placeholder.com/190x196"></a>
+            </div>
+            <p class="paper-description">Lorem ipsum dolor sit amet</p>
+            <div class="paper-content">
+                <a class="paper-link" href="#">
+                    <img src="http://via.placeholder.com/30x30">
+                </a>
+                <p class="paper-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non diam neque.
+                    Maecenas mauris massa, aliquet ut mollis fermentum, pellentesque et leo.</p>
+            </div>
+        </div>
+
+        <div class="paper">
+            <div class="paper-holder">
+                <a><img width="190" src="http://via.placeholder.com/190x208"></a>
+            </div>
+            <p class="paper-description">Lorem ipsum dolor sit amet</p>
+            <div class="paper-content">
+                <a class="paper-link" href="#">
+                    <img src="http://via.placeholder.com/30x30">
+                </a>
+                <p class="paper-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non diam neque.
+                    Maecenas mauris massa, aliquet ut mollis fermentum, pellentesque et leo.</p>
+            </div>
+        </div>
+
+        <div class="paper">
+            <div class="paper-holder">
+                <a><img width="190" src="http://via.placeholder.com/190x210"></a>
+            </div>
+            <p class="paper-description">Lorem ipsum dolor sit amet</p>
+            <div class="paper-content">
+                <a class="paper-link" href="#">
+                    <img src="http://via.placeholder.com/30x30">
+                </a>
+                <p class="paper-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non diam neque.
+                    Maecenas mauris massa, aliquet ut mollis fermentum, pellentesque et leo.</p>
+            </div>
+        </div>
+
+        <div class="paper">
+            <div class="paper-holder">
+                <a><img width="190" src="http://via.placeholder.com/190x139"></a>
+            </div>
+            <p class="paper-description">Lorem ipsum dolor sit amet</p>
+            <div class="paper-content">
+                <a class="paper-link" href="#">
+                    <img src="http://via.placeholder.com/30x30">
+                </a>
+                <p class="paper-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non diam neque.
+                    Maecenas mauris massa, aliquet ut mollis fermentum, pellentesque et leo.</p>
+            </div>
+        </div>
+    </section>
+    <!-- 라이트박스 -->
+    <div id="darken-background">
+        <div id="lightbox">
+            <div class="user-information">
+                <a class="user-information-image" href="#">
+                    <img src="http://via.placeholder.com/70x70">
+                </a>
+                <div class="user-information-text">
+                    <h3>User</h3>
+                    <p>Lorem ipsum dolor sit amet.</p>
+                </div>
+            </div>
+            <hr class="lightbox-splitter">
+            <img src="http://via.placeholder.com/600x750">
+        </div>
+    </div>
+
+    <script>
+        // 풀다운 메뉴
+        $(document).ready(function () {
+            // 풀다운 메뉴
+            $('.outer-menu').hover(function () {
+                $(this).find('.inner-menu').css('display', 'block');
+            }, function () {
+                $(this).find('.inner-menu').css('display', 'none');
+            });
+        });
+
+        // 페이지
+        $(document).ready(function () {
+            // 이미지 로드 확인
+            $('#main-section').imagesLoaded(function () {
+                // jQuery Masonry 플러그인 적용
+                $('#main-section').masonry({
+                    itemSelector: '.paper',
+                    columnWidth: 230,
+                    isAnimated: true
+                });
+            });
+        });
+
+
+        // 라이트박스
+        $(document).ready(function () {
+            function showLightBox() {
+                $('#darken-background').fadeIn(500);
+                $('body').css('overflow', 'hidden');
+            }
+
+            function hideLightBox() {
+                $('#darken-background').fadeOut(500);
+                $('body').css('overflow', '');
+            }
+
+            // 라이트박스 제거 이벤트
+            $('#darken-background').click(function () {
+                hideLightBox();
+            });
+
+            // 클릭 이벤트 연결 (이벤트 위임 사용)
+            $(document).on('click', '.paper', function () {
+                showLightBox();
+            });
+
+            // 라이트박스 제거 이벤트 보조
+            $('#lightbox').click(function (event) {
+                event.stopPropagation();
+            });
+        });
+
+        // 무한 스크롤
+        $(window).scroll(function () {
+            if ($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
+                loadMoreContent();
+            }
+        });
+
+        function loadMoreContent() {
+            // 여기서 새로운 콘텐츠를 로드합니다.
+            for (let i = 0; i < 10; i++) {  // 10개의 새로운 항목을 추가
+                let newPaper = $('<div class="paper">').html(`
+            <div class="paper-holder">
+                <a><img width="190" src="http://via.placeholder.com/190x${Math.floor(Math.random() * 100 + 150)}"></a>
+            </div>
+            <p class="paper-description">Lorem ipsum dolor sit amet</p>
+            <div class="paper-content">
+                <a class="paper-link" href="#">
+                    <img src="http://via.placeholder.com/30x30">
+                </a>
+                <p class="paper-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non diam neque.</p>
+            </div>
+        `);
+                $('#main-section').append(newPaper).masonry('appended', newPaper);
+            }
+
+            // Masonry 레이아웃 새로고침
+            $('#main-section').imagesLoaded(function () {
+                $('#main-section').masonry('layout');
+            });
+        }
+
+    </script>
+</body>
+
+</html>
