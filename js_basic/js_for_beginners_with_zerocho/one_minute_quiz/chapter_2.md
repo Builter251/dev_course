@@ -69,5 +69,27 @@ for (let i = 0; i < 100; i++) {
 
 8. 구구단을 출력하되, continue 문을 사용해서 결과가 홀수만 나오게 해 보세요.
 ```javascript
+for (let i = 1; i < 10; i++) {
+    for (let j = 1; j < 10; j++) {
+        if ((i * j) % 2 === 0) {
+            continue;
+        }
+        console.log(`${i} ✕ ${j} = ${(i * j)}`);
+    }
+}
+```
 
+9. 이름이 arr인 배열의 마지막에서 세 번째 요소를 찾는 방법은?
+- arr[arr.length - 3];
+- arr.at(-3);
+
+10. 다음 배열에서 indexOf(), splice()를 이용해 '라'를 모두 삭제해 보세요.
+```javascript
+const arr = ['가', '라', '다', '마', '라'];
+
+let idx = arr.indexOf('라');
+while (idx !== -1 ) {
+    arr.splice(idx, 1)
+    idx = arr.indexOf('라', idx + 1);
+}
 ```
