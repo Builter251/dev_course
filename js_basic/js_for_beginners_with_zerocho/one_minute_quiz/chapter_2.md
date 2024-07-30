@@ -116,3 +116,32 @@ const multiply = (x, y, z) => {
     return x * y * z;
 }
 ```
+
+14. 다음 고차함수의 결과는?
+    - const first = hof(3) => 3 + (b * c);
+    - const second = first(4) => 3 + (4 * c); 
+    - const third = second(5) => 3 + (4 * 5);
+    - console.log(third) === 23
+
+15. 객체 안의 객체의 속성을 교체하려면?
+- zerocho.name.last = '김'
+
+16. a를 사용해 b, c name을 고양이로 바꿔 보세요.
+```javascript
+cosnt a = {
+    name: '강아지',
+};
+const b = a;
+const c = b;
+
+a.name = '고양이';
+```
+
+17. ~~값 복사~~
+```javascript
+const a = 'b';
+const c = ['d', true, 1];
+const e = { g: 'h'};
+const i = [{j: 'k'}, {l: 'm'}];
+const n = {o: {p: 'q'}};
+```
