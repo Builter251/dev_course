@@ -93,3 +93,26 @@ while (idx !== -1 ) {
     idx = arr.indexOf('라', idx + 1);
 }
 ```
+
+11. 이차원 배열로 구성해 보세요
+```javascript
+const twoDemensions = [['a', null],[1, undefined], [NaN, true],['',0]];
+```
+
+12. for 문으로 5행 4열의 이차원 배열을 만들어 보세요. (배열 요소는 모두 1)
+```javascript
+const arr = [];
+for (let i = 0; i < 5; i++) {
+    arr[i] = [];
+    for (let j = 0; j < 4; j++) {
+        arr[i][j] = 1;
+    }
+}
+```
+
+13. 매개변수 x, y, z 를 인수로 받아 곱한 값을 반환하는 multiply() 함수를 화살표 함수로 작성해보세요.
+```javascript
+const multiply = (x, y, z) => {
+    return x * y * z;
+}
+```
