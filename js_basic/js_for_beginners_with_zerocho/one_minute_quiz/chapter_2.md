@@ -96,7 +96,7 @@ while (idx !== -1 ) {
 
 11. 이차원 배열로 구성해 보세요
 ```javascript
-const twoDemensions = [['a', null],[1, undefined], [NaN, true],['',0]];
+const twoDimensions = [['a', null],[1, undefined], [NaN, true],['',0]];
 ```
 
 12. for 문으로 5행 4열의 이차원 배열을 만들어 보세요. (배열 요소는 모두 1)
@@ -144,4 +144,130 @@ const c = ['d', true, 1];
 const e = { g: 'h'};
 const i = [{j: 'k'}, {l: 'm'}];
 const n = {o: {p: 'q'}};
+
+const a2 = a;
+const c2 = c.slice();
+const e2 = {...e};
+const i2 = JSON.parse(JSON.stringify(i));
+const n2 = JSON.parse(JSON.stringify(n));
+```
+
+18. ~~구조 분해 할당~~
+```javascript
+const obj = {
+    a: 'hello',
+    b: {
+        c: 'hi',
+        d: {e:'wow'},
+    },
+};
+
+const a = obj.a;
+const c = obj.b.c;
+const e = obj.b.d.e;
+const {a, b: {c, d:{e}}} = obj;
+```
+
+19. forEach() → for
+```javascript
+const array = [1,3,5,7];
+array.forEach((number,index) => {
+    console.log(number, index);
+})
+
+for(let i = 0; i < array.length; i++){
+    console.log(array[i], i);
+}
+```
+
+20. Array(), fill(), map() 활용하기
+```javascript
+Array(5).fill().map((v, i) => i * 2 + 3);
+```
+
+21. find() 메서드 -> for 문
+```javascript
+const find = (array, callback) => {
+    for(let i  = 0; i < array.length; i++){
+        if (callback(array[i])) {
+            return array[i];
+        }
+    }
+}
+```
+
+22. filter() 메서드 -> for 문
+```javascript
+const filter = (array, callback)     => {
+    const filtered = [];
+    for(let i = 0; i< array.length; i++) { 
+        if (callback(array[i])) {
+            filtered.push(array[i]);
+        }
+    }
+    return filtered
+}                             
+```
+
+23. ~~reduce() 결과~~
+```javascript
+[1,2,3,4,5].reduce((a,c)=> {
+    a[c] = c* 10;
+    return a;
+}, {});
+
+{1:10, 2:20, 3:30, 4:40, 5:50}
+```
+
+24. some()
+```javascript
+const array = [null, 'hello', null, undefined, false];
+console.log(array.some((value) => value !== null));
+```
+
+25. #24. some() -> for
+```javascript
+let result = false;
+for(let i = 0; i < array.length; i++) {
+    if(array[i] !== null) {
+        result = true;
+        break
+    }
+}
+console.log(result);
+```
+
+26. class Human
+```javascript
+class Human {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    sayName() {
+        console.log(this.name);
+    }
+
+    sayAge() {
+        console.log(this.age);
+    }
+}
+```
+
+27. #26 class Developer extends Human
+```javascript
+class Developer extends Human {
+    constructor(name,age,languages) {
+        super(name, age);
+        this.languages = languages;
+    }
+
+    showAvailableLanguages() {
+        console.log(this.languages);
+    }
+}
+
+const builter = new Developer('builter', 6, ['HTML', 'CSS', 'JavaScript']);
+builter.showAvailableLanguages(); // ['HTML', 'CSS', 'JavaScript']
 ```
