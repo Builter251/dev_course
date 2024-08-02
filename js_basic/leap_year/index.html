@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+    <title>Leap Year Calculator</title>
+</head>
+
+<body>
+    <header>
+        <h1>윤년 계산기</h1>
+        <article>
+            <h2>윤년의 정의</h2>
+            <p>윤달이나 윤날이 든 해.</p>
+            <p>그레고리력에서는 400년에 97번 윤날을 두어 윤년으로 만들고, 음력에서는 약 19년에 일곱 번의 비율로 윤달을 두어 윤년으로 만든다. ≒ 과년.</p>
+        </article>
+    </header>
+
+    <main>
+        <section>
+            <h2>특정 연도의 윤년 확인</h2>
+            <form action=""> 
+                <label for="yearSingle">확인하고 싶은 연도</label>
+                <input type="number" name="single_year" id="yearSingle">
+            </form>
+        </section>
+
+        <section>
+            <h2>연도 간의 윤년 확인</h2>
+            <form action="">
+                <label for="yearRangeBefore">시작 연도</label>
+                <input type="number" name="" id="yearRangeBefore">
+                <label for="yearRangeAfter">종료 연도</label>
+                <input type="number" name="" id="yearRangeAfter">
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <h2>참고 자료</h2>
+        <ul>
+            <li><a href="https://stdict.korean.go.kr/search/searchView.do?word_no=470370&searchKeywordTo=3">윤년 - 국립국어원
+                    표준국어대사전</a></li>
+            <li><a href="https://learn.microsoft.com/ko-kr/office/troubleshoot/excel/determine-a-leap-year">연도가 윤년인지
+                    확인하는 방법 - Microsoft Learn</a></li>
+            <li><a href="https://www.omnicalculator.com/everyday-life/leap-year">Leap Year Calculator - Omni
+                    Calculator</a></li>
+        </ul>
+    </footer>
+</body>
+
+</html>
