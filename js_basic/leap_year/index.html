@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script defer src="script.js"></script>
     <link rel="stylesheet" href="style.css">
     <script defer src="script.js"></script>
     <title>Leap Year Calculator</title>
@@ -17,25 +16,38 @@
             <h2>윤년의 정의</h2>
             <p>윤달이나 윤날이 든 해.</p>
             <p>그레고리력에서는 400년에 97번 윤날을 두어 윤년으로 만들고, 음력에서는 약 19년에 일곱 번의 비율로 윤달을 두어 윤년으로 만든다. ≒ 과년.</p>
+
+            <h3>윤년 계산 방법</h3>
+            <ol>
+                <li>해가 4로 나누어떨어지지 않으면 평년이다.</li>
+                <li>해가 4로 나누어떨어지지만, 100으로 나누어떨어지지 않으면 윤년이다.</li>
+                <li>해가 100으로 나누어떨어지지만, 400으로 나누어떨어지지 않으면 평년이다.</li>
+                <li>해가 400으로 나누어떨어지면 윤년이다.</li>
+            </ol>
         </article>
     </header>
 
     <main>
-        <section>
+        <section id="calculatorSingle">
             <h2>특정 연도의 윤년 확인</h2>
-            <form action=""> 
+            <form action="">
                 <label for="yearSingle">확인하고 싶은 연도</label>
                 <input type="number" name="single_year" id="yearSingle">
+                <button type="button">확인하기</button>
+                <p class="result"></p>
             </form>
+
         </section>
 
-        <section>
+        <section id="calculatorRange">
             <h2>연도 간의 윤년 확인</h2>
             <form action="">
-                <label for="yearRangeBefore">시작 연도</label>
-                <input type="number" name="" id="yearRangeBefore">
-                <label for="yearRangeAfter">종료 연도</label>
-                <input type="number" name="" id="yearRangeAfter">
+                <label for="yearRangeStart">시작 연도</label>
+                <input type="number" name="" id="yearRangeStart">
+                <label for="yearRangeFinish">종료 연도</label>
+                <input type="number" name="" id="yearRangeFinish">
+                <button type="button">확인하기</button>
+                <p class="result"></p>
             </form>
         </section>
     </main>
