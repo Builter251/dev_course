@@ -4,8 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <script defer src="script.js"></script>
+    <script defer src="jquery.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js" integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="style.css">
     <title>Leap Year Calculator</title>
 </head>
 
@@ -17,7 +21,7 @@
             <p>윤달이나 윤날이 든 해.</p>
             <p>그레고리력에서는 400년에 97번 윤날을 두어 윤년으로 만들고, 음력에서는 약 19년에 일곱 번의 비율로 윤달을 두어 윤년으로 만든다. ≒ 과년.</p>
 
-            <h3>윤년 계산 방법</h3>
+            <h2>윤년 계산 방법</h2>
             <ol>
                 <li>해가 4로 나누어떨어지지 않으면 평년이다.</li>
                 <li>해가 4로 나누어떨어지지만, 100으로 나누어떨어지지 않으면 윤년이다.</li>
@@ -28,6 +32,11 @@
     </header>
 
     <main>
+        <ul>
+            <li><a href="#calculatorSingle">특정 연도</a></li>
+            <li><a href="#calculatorRange">기간</a></li>
+        </ul>
+
         <section id="calculatorSingle">
             <h2>특정 연도의 윤년 확인</h2>
             <form action="">
@@ -36,7 +45,6 @@
                 <button type="button">확인하기</button>
                 <p class="result"></p>
             </form>
-
         </section>
 
         <section id="calculatorRange">
@@ -53,7 +61,7 @@
     </main>
 
     <footer>
-        <h2>참고 자료</h2>
+        <h3>참고 자료</h3>
         <ul>
             <li><a href="https://stdict.korean.go.kr/search/searchView.do?word_no=470370&searchKeywordTo=3">윤년 - 국립국어원
                     표준국어대사전</a></li>

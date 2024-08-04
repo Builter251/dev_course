@@ -42,12 +42,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     ++yearStart;
                 }
 
-                resultRange.textContent = listLeapYears.length > 0 ? listLeapYears.join('년, ') + '년' : '윤년이 없습니다.';
+                resultRange.textContent = listLeapYears.length > 0 ? listLeapYears.join('년, ') + '년' : `${yearRangeStart.value}년 에서 ${yearRangeFinish.value}년 사이에는 윤년이 없습니다. `;
             } else {
-                resultRange.textContent = '올바른 연도를 입력해주십시오.'; // 시작년도가 종료년도보다 큼
+                resultRange.textContent = '시작 연도가 종료 연도보다 큽니다.'; // 시작년도가 종료년도보다 큼
             }
         } else {
-            resultRange.textContent = '올바른 연도를 입력해주십시오.'; // 입력갑 양의 정수 아님
+            resultRange.textContent = '올바른 연도를 입력해주십시오.'; // 입력값 양의 정수 아님
         }
     });
 });
