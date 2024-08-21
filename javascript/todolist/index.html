@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <title>To-Do List</title>
+
+</head>
+
+<body>
+    <header>
+        <h1>할 일 목록</h1>
+    </header>
+
+    <main>
+        <form id="formTodo">
+            <label for="inputTodo">할 일</label>
+            <input type="text" id="inputTodo" required>
+
+            <label for="inputAlarm">알람 시간(선택)</label>
+            <input id="inputAlarm" type="datetime-local">
+
+            <label for="inputTag">태그(선택)</label>
+            <input id="inputTag" type="text" placeholder="띄어쓰기 구분">
+
+            <button id="btnSubmit" type="submit">추가</button>
+
+            <!-- input의 유효성 검사 결과 에러 메시지를 표시합니다. -->
+            <div id="msgError"></div>
+        </form>
+
+        <div class="counter">
+            <span>할 일: 0개</span>
+            <span>완료: 0개</span>
+            <span>미완료: 0개</span>
+        </div>
+
+        <ul id="listTodo">
+            <!-- 자바스크립트 코드로 동적으로 작성됩니다. -->
+        </ul>
+
+
+    </main>
+</body>
+
+</html>
