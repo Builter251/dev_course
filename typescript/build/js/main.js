@@ -104,3 +104,43 @@ function quizAdd(a, b) {
 function isEven(num) {
     return num % 2 === 0;
 }
+const obj1 = { name: 'kim' };
+const num1 = 123;
+const bool1 = true;
+const str1 = 'hello';
+const func1 = function () { };
+let name1 = { firstName: 'kim', lastName: 'jane' };
+const add3 = (a, b) => a + b;
+const multiply = (a, b) => a * b;
+const dog = { name: 'merry', age: 2, breed: 'poodle' };
+const product1 = { name: 'goods', price: 1000 };
+const product2 = { name: 'goods', price: 1000, description: 'this is goods' };
+const dictionary = { a: 'b' };
+dictionary["apple"] = "A fruit that is sweet and crisp.";
+dictionary["banana"] = "A long yellow fruit that is soft inside.";
+dictionary["car"] = "A vehicle that is used for transportation.";
+function getFirstElement(array) {
+    return array[0];
+}
+const numbers = [1, 2, 3];
+const firstNumber = getFirstElement(numbers); // 1
+const strings = ["apple", "banana", "car"];
+const firstString = getFirstElement(strings); // "apple"
+// length 속성을 가진 객체를 받는 제네릭 함수 getLength를 정의합니다.
+function getLength(obj) {
+    return obj.length;
+}
+const array = [1, 2, 3];
+const string = "hello";
+const arrayLength = getLength(array); // 3
+const stringLength = getLength(string); // 5
+const objWithoutLength = { name: "example" };
+// const lengthOfObj = getLength(objWithoutLength); // 오류 발생
+function getMax(a, b) {
+    return a > b ? a : b;
+}
+const maxNumber = getMax(10, 20); // 20
+//isString<T>
+function isString(value) {
+    return typeof value === "string" ? true : false;
+}
